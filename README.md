@@ -121,15 +121,7 @@ Aggregated metrics such as:
 
 The final dataset enables business insights like:
 
-1. Real-time Sales Dashboard
-2. Track total revenue per store.
-3. Product Performance
-4. Identify top-selling products.
-
-Customer Behavior
-
-Analyze purchase trends.
-
-Inventory Monitoring
-
-Detect low-stock items.
+1. **Real-time Sales Dashboard** - Track total revenue per store.
+2. **Product Performance** - Identify top-selling products.
+3. **Customer Behavior** - Analyze purchase trends.
+4. **Inventory Monitoring** - Detect low-stock items.

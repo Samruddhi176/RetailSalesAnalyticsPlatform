@@ -10,6 +10,9 @@ This project simulates how companies like Amazon, Walmart, or Flipkart process m
 
 ## 🏗 Architecture Diagram
 
+
+![Architecture](Architecture/Real-time_Retail_Sales_Analytics_DE_Project_architecture.png)
+
                    +----------------------+
                    |  Retail POS System   |
                    |  / E-commerce Events |

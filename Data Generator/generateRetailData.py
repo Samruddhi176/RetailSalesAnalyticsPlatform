@@ -1,19 +1,23 @@
 import json
 import random
-import time
+import uuid
 from datetime import datetime
+import time
 
-products = ["Laptop", "Phone", "Headphones", "Tablet"]
+products = ["Laptop", "Phone", "Headphones", "Shoes", "Watch"]
+stores = ["STORE_1", "STORE_2", "STORE_3", "STORE_4"]
 
-def generate_event():
+def generate_transaction():
     return {
-        "transaction_id": random.randint(1000, 9999),
+        "transaction_id": str(uuid.uuid4()),
+        "store_id": random.choice(stores),
         "product": random.choice(products),
-        "price": round(random.uniform(50, 2000), 2),
-        "timestamp": str(datetime.utcnow())
+        "quantity": random.randint(1, 5),
+        "price": round(random.uniform(10, 500), 2),
+        "timestamp": datetime.utcnow().isoformat()
     }
 
 while True:
-    event = generate_event()
-    print(json.dumps(event))
+    transaction = generate_transaction()
+    print(json.dumps(transaction))
     time.sleep(1)

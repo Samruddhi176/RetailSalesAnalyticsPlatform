@@ -154,6 +154,7 @@ This architecture supports:
 2. Serverless compute with Lambda
 3. Distributed processing with Spark
 4. Highly durable storage using S3
+
 **It can scale to millions of transactions per day.**
 
 ## 💡 Future Improvements

@@ -83,10 +83,15 @@ Filtering invalid records
 Amazon S3 stores raw and processed data.
 The pipeline follows a multi-layer architecture:
 S3
+ 
  ├── raw/
+ 
  ├── bronze/
+ 
  ├── silver/
+ 
  └── gold/
+ 
 
 **Raw Layer**
 Unprocessed event data directly from Lambda.

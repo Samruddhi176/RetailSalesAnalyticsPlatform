@@ -82,6 +82,7 @@ Filtering invalid records
 ### 4. Data Lake — Amazon S3
 Amazon S3 stores raw and processed data.
 The pipeline follows a multi-layer architecture:
+
 S3
  
  ├── raw/

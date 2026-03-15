@@ -1,20 +1,31 @@
 import json
 import base64
+import boto3
+from datetime import datetime
+
+s3 = boto3.client("s3")
+BUCKET = "retail-data-lake"
 
 def lambda_handler(event, context):
 
-    processed_records = []
+    records = []
 
     for record in event['Records']:
+
         payload = base64.b64decode(record['kinesis']['data'])
         data = json.loads(payload)
 
-        if data["price"] > 0:
-            processed_records.append(data)
+        data["ingestion_time"] = datetime.utcnow().isoformat()
 
-    print("Processed records:", processed_records)
+        records.append(data)
+
+    s3.put_object(
+        Bucket=BUCKET,
+        Key=f"raw/transactions_{datetime.utcnow().timestamp()}.json",
+        Body=json.dumps(records)
+    )
 
     return {
         "statusCode": 200,
-        "body": json.dumps("Processing complete")
+        "body": "Processed successfully"
     }

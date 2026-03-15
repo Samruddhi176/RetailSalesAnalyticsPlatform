@@ -51,6 +51,18 @@ This project simulates how companies like Amazon, Walmart, or Flipkart process m
                    | Dashboards        |
                    +-------------------+
 
+## ⚙️ Tech Stack
+
+| Layer                 | Technology                          |
+| --------------------- | ----------------------------------- |
+| Data Streaming        | Amazon Kinesis                      |
+| Serverless Processing | AWS Lambda                          |
+| Data Lake Storage     | Amazon S3                           |
+| Big Data Processing   | Databricks (Apache Spark)           |
+| Data Transformation   | PySpark                             |
+| Infrastructure        | AWS                                 |
+
+
 ## 🔄 Data Pipeline Workflow
 
 ### 1. Event Generation (Retail Transactions)

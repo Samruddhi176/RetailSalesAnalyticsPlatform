@@ -146,3 +146,21 @@ The final dataset enables business insights like:
 2. **Product Performance** - Identify top-selling products.
 3. **Customer Behavior** - Analyze purchase trends.
 4. **Inventory Monitoring** - Detect low-stock items.
+
+## 🔐 Scalability Features
+
+This architecture supports:
+1. Horizontal scaling with Kinesis shards
+2. Serverless compute with Lambda
+3. Distributed processing with Spark
+4. Highly durable storage using S3
+**It can scale to millions of transactions per day.**
+
+## 💡 Future Improvements
+
+Possible enhancements:
+1. Add Kafka instead of Kinesis
+2. Implement Delta Lake
+3. Add ML demand forecasting
+4. Real-time fraud detection
+5. Deploy infrastructure using Terraform

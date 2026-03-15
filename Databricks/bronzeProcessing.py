@@ -8,5 +8,5 @@ df = spark.readStream \
 
 df.writeStream \
     .format("delta") \
-    .option("checkpointLocation", "s3://retail-data-lake/checkpoints/") \
+    .option("checkpointLocation", "/checkpoints/bronze") \
     .start("s3://retail-data-lake/bronze/")

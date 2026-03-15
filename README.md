@@ -9,3 +9,127 @@ The pipeline uses AWS streaming services and Databricks for big data processing 
 This project simulates how companies like Amazon, Walmart, or Flipkart process millions of events in real time.
 
 ## 🏗 Architecture Diagram
+
+                   +----------------------+
+                   |  Retail POS System   |
+                   |  / E-commerce Events |
+                   +----------+-----------+
+                              |
+                              v
+                     +------------------+
+                     |   AWS Kinesis    |
+                     |  Data Streams    |
+                     +--------+---------+
+                              |
+                              v
+                   +----------------------+
+                   |  AWS Lambda          |
+                   |  (Data Validation &  |
+                   |   Enrichment Layer)  |
+                   +----------+-----------+
+                              |
+                              v
+                     +------------------+
+                     |  Amazon S3       |
+                     |  Raw Data Lake   |
+                     +--------+---------+
+                              |
+                              v
+                 +-------------------------+
+                 |  Databricks (Spark)     |
+                 |  Streaming Processing   |
+                 |  Bronze → Silver → Gold |
+                 +-----------+-------------+
+                             |
+                             v
+                   +-------------------+
+                   | Analytics Layer   |
+                   | Power BI / SQL    |
+                   | Dashboards        |
+                   +-------------------+
+
+## 🔄 Data Pipeline Workflow
+
+### 1. Event Generation (Retail Transactions)
+
+Retail transactions are generated from sources such as:
+- Point of Sale systems
+- Online purchases
+- Mobile apps
+
+### 2. Streaming Layer — AWS Kinesis
+
+The transaction events are streamed into AWS Kinesis Data Streams.
+
+**Responsibilities:**
+High-throughput data ingestion
+Real-time event streaming
+Fault-tolerant event buffering
+
+**Benefits:**
+Handles thousands of transactions per second
+Ensures low-latency ingestion
+
+### 3. Processing Layer — AWS Lambda
+AWS Lambda acts as the real-time processing layer.
+
+**Lambda performs:**
+Schema validation
+Data cleaning
+Adding metadata
+Filtering invalid records
+
+### 4. Data Lake — Amazon S3
+Amazon S3 stores raw and processed data.
+The pipeline follows a multi-layer architecture:
+S3
+ ├── raw/
+ ├── bronze/
+ ├── silver/
+ └── gold/
+
+**Raw Layer**
+Unprocessed event data directly from Lambda.
+
+**Bronze Layer**
+Minimal cleaning and schema enforcement.
+
+**Silver Layer**
+Structured and enriched data.
+
+**Gold Layer**
+Business-ready datasets for analytics.
+
+### 5. Data Processing — Databricks (Apache Spark)
+Databricks reads streaming data from S3 and performs big data transformations.
+Using Spark Structured Streaming, it processes data in near real time.
+
+**Silver Layer**
+Operations performed:
+- Deduplication
+- Data normalization
+- Enrichment with product metadata
+
+**Gold Layer**
+Aggregated metrics such as:
+- Total sales per store
+- Top-selling products
+- Revenue per region
+- Hourly transaction trends
+
+## 📊 Analytics Use Cases
+
+The final dataset enables business insights like:
+
+1. Real-time Sales Dashboard
+2. Track total revenue per store.
+3. Product Performance
+4. Identify top-selling products.
+
+Customer Behavior
+
+Analyze purchase trends.
+
+Inventory Monitoring
+
+Detect low-stock items.
